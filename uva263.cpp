@@ -11,8 +11,7 @@ bool vis[MAX];
 void limpavis(){
   while(topo >= 0){
     vis[pilha[topo--]] = 0;
-  }
-}
+  }}
 
 void separa(){
   if(num == 0) v[0]++;
