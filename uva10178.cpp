@@ -12,8 +12,7 @@ void dfs(int u){
   for(int i = 0; i < dG[u]; i++){
     int v = LG[u][i]; nE++;
     if(!vis[v]) dfs(v);
-  }
-}
+  }}
 
 int main(void){
   int V, E, i, f;

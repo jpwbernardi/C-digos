@@ -31,6 +31,7 @@ void dijkstra(int s) {
 
   dist[s][0] = 0; Q.push(pi(0, ii(s, 0)));
   while (!Q.empty()) {
+    // printf("u: %d\n", u);
     u = Q.top().second.first;
     estado = Q.top().second.second;
     Q.pop();
@@ -64,8 +65,11 @@ int main(void){
     s = M["varzea"];
     t = M["alto"];
     dijkstra(s);
-    for(tempo = INF, i = 0; i < 12; i++)
+    // printf("[%d][%d]\n[%d][%d]\n", AG[0][0], AG[0][1], AG[1][0], AG[1][1]);
+    for(tempo = INF, i = 0; i < 12; i++){
       tempo = mmin(dist[t][i], tempo);
+      // printf("%d\n", dist[t][i]);
+    }
     m += tempo;
     h += m / 60;
     m %= 60;

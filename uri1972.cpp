@@ -34,9 +34,7 @@ void dijkstra(){
       if(v.x >= 0 && v.x < N && v.y >= 0 && v.y < M && grid[v.x][v.y] != '#' && grid[v.x][v.y] != 'H' && dist[v.x][v.y] > dist[u.x][u.y] + peso){
         dist[v.x][v.y] = dist[u.x][u.y] + peso;
         Q.push(pii(dist[v.x][v.y], ii(v.x, v.y)));
-      }
-    }
-  }
+      }}}
   if(dist[t.x][t.y] != INFTO) printf("%d\n", dist[t.x][t.y]);
   else printf("ARTSKJID\n");
 }
@@ -50,8 +48,7 @@ int main(void){
       grid[i][j] = getchar();
       if(grid[i][j] == 'H'){ s.x = i; s.y = j; }
       if(grid[i][j] == 'E'){ t.x = i; t.y = j; }
-    }
-  }
+    }}
   dijkstra();
   return 0;
 }

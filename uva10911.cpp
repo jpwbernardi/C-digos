@@ -44,8 +44,7 @@ void calculaDist(){
     for(j = 0; j < N; j++){
       x_ = x[i] - x[j]; y_ = y[i] - y[j];
       dist[i][j] = sqrt(x_ * x_ + y_ * y_);
-    }
-}
+    }}
 
 int main(void){
   int i, caso = 0;
