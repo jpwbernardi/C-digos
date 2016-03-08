@@ -23,8 +23,7 @@ int main(void){
         if(M[st1]) M[st1]++;
         if(M[st2]) M[st2] = 0;
     }
-    qsort(nome, cont, sizeof(nome[0]),
-            &cmp);
+    qsort(nome, cont, sizeof(nome[0]), &cmp);
     printf("HALL OF MURDERERS\n");
     for(int i = 0; i < cont; i++){
         string st1(nome[i]);
