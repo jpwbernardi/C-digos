@@ -27,8 +27,10 @@ int main(void){
             fgets(pais, 1123, stdin);
             pais[strlen(pais) - 1] = '\0';
             string s(pais);
-            if(M.find(s) == M.end()) { strcpy(paises[cont], pais); M[s] = cont++; }
-            p = M[s];
+            if(M.find(s) == M.end()) {
+                strcpy(paises[cont], pais);
+                p = M[s] = cont++;
+            } else p = M[s];
             score[p][i]++;
         }
     qsort(paises, cont, sizeof(paises[0]), &cmp);

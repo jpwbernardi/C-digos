@@ -3,32 +3,22 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include <iostream>
 using namespace std;
 
 #define MAX 112345
-
-char nome[MAX * 2][21];
-
-int cmp(const void *a, const void *b){
-    return strcmp((char *)a, (char *)b);
-}
+#define INFTO 112345678
 
 int main(void){
-    int cont = 0, a;
     map<string, int> M;
     char cs1[21], cs2[21];
     while(scanf("%s %s ", cs1, cs2) != EOF){
         string st1(cs1), st2(cs2);
-        if(M.find(st1) == M.end()){ strcpy(nome[cont++], cs1); M[st1] = 1; }
-        if(M[st1]) M[st1]++;
-        if(M[st2]) M[st2] = 0;
+        M[st1]++; M[st2] = -INFTO;
     }
-    qsort(nome, cont, sizeof(nome[0]), &cmp);
+    map<string, int>::iterator i;
     printf("HALL OF MURDERERS\n");
-    for(int i = 0; i < cont; i++){
-        string st1(nome[i]);
-        a = M[st1];
-        if(a) printf("%s %d\n", nome[i], a - 1);
-    }
+    for(i = M.begin(); i != M.end(); i++)
+        if(i->second > 0) printf("%s %d\n", i->first.c_str(), i->second);
     return 0;
 }
