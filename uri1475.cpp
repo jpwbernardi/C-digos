@@ -46,10 +46,19 @@ int main(void){
             F[i + N] = F[i] + C;
         }
         qsort(F, N * 2, sizeof(int), &cmp);
-        for(inicio = 0; inicio < N; inicio++){
-            memset(S, -1, sizeof(S));
+
+        //Não me convence :P
+        inicio = 0; memset(S, -1, sizeof(S));
+        resp = min(resp, pd(inicio));
+        if(N >= 1){
+            inicio = 1; memset(S, -1, sizeof(S));
             resp = min(resp, pd(inicio));
         }
+        //Me convence
+        // for(inicio = 0; inicio < N; inicio++){
+        //     memset(S, -1, sizeof(S));
+        //     resp = min(resp, pd(inicio));
+        // }
         printf("%lld\n", resp);
     }
     return 0;
