@@ -1,3 +1,8 @@
+/*
+S: 0                                    , se i - inicio >= N
+   min(S(prox) + T1, S(prox) + T2)      , cc;
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
