@@ -3,15 +3,20 @@
 #define MAX 123
 
 int main(void){
-    int i, flag, first;
+    int i, imprimindo, first;
     char alf[30], s[MAX];
     while(fgets(s, MAX, stdin) != NULL){
         memset(alf, 0, sizeof(alf));
-        for(i = 0; s[i] != '\0'; i++)
+        for(i = 0; s[i] != '\n'; i++)
             if(s[i] != ' ') alf[s[i] - 'a'] = 1;
-        for(i = 0, flag = first = 1; i < 30; i++){
-            if(flag && alf[i]) { printf("%s%c:", first ? "" : ", ", i + 'a'); flag = first = 0; }
-            if(!flag && !alf[i]) { printf("%c", i - 1 + 'a'); flag = 1; }
+        for(imprimindo = i = 0, first = 1; i < 30; i++){
+            if (!imprimindo && alf[i]) {
+                printf("%s%c:", first ? "" : ", ", i + 'a');
+                imprimindo = 1; first = 0;
+            } else if (imprimindo && !alf[i]) {
+                printf("%c", i - 1 + 'a');
+                imprimindo = 0;
+            }
         }
         printf("\n");
     }
