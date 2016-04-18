@@ -8,7 +8,7 @@ using namespace std;
 
 int Ncomp;
 int I, N, O, K;
-char vis[MAX1], memo[MAX1];
+char memo[MAX1];
 int LG[MAX1][MAX], dG[MAX1];
 int ordem[MAX1], ciclo[MAX1], comp[MAX1], _ordem, S[MAX1], topo, emS[MAX1];
 
@@ -18,7 +18,6 @@ int dfs(int u){
   int flag = 1;
   if(u >= I + N) return 0;
   if(memo[u] != -1) return memo[u];
-  vis[u] = 1;
   for(int i = 0; i < dG[u]; i++)
     flag &= dfs(LG[u][i]);
   return memo[u] = flag;
@@ -41,7 +40,7 @@ void tarjan(int u) {
 int main(void){
   int u, v;
   char erro = 0;
-  memset(vis, 0, sizeof(vis)); memset(dG, 0, sizeof(dG));
+  memset(dG, 0, sizeof(dG));
   memset(ordem, 0, sizeof(ordem)); memset(ciclo, 0, sizeof(ciclo)); memset(emS, 0, sizeof(emS));
   scanf("%d %d %d", &I, &N, &O);
   for (v = I; v < I + N; v++){
@@ -57,8 +56,8 @@ int main(void){
   // }
   for(Ncomp = u = 0; u < I + N + O; u++)
     if(!ordem[u]) tarjan(u);
-  erro = !(Ncomp == I + N + O);
 
+  erro = !(Ncomp == I + N + O);
   memset(memo, -1, sizeof(memo));
   for(u = 0; !erro && u < I + N; u++)
     erro |= dfs(u);
