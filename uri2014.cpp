@@ -64,7 +64,7 @@ int main(void) {
     for (i = 0; i < B; i++)
       { scanf("%d", &q[i]); AR[q[i] + N + 2][T] = 1; }
     fluxo = ffek(S, T);
-    if(fluxo ==  B)
+    if (fluxo ==  B)
       for (AR[N + 2][T] = INF, i = 0; i < B; i++)
         AR[q[i] + N + 2][T] = INF;
     fluxo += ffek(S, T);
